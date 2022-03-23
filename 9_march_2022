@@ -1,0 +1,66 @@
+Task 1 (new training)
+
+https://www.ostraining.com/class/wp-beginner/tags/
+MATT MULLENWEG developer of wordpress.
+
+1. Wordpress for beginners:
+
+Wordpress is a open-source software for blog or apps (CMS : content managemnet system )
+32% of the entire internet from hobbies to newsites.
+Customize designs, SEO Friendly, Responsive mobile sites, High Performance, High Security, Powerful Media Management.
+Open-source is fueled by the community
+
+2. Install wordpress on your  PC:
+
+XAMPP ( win, Lin ), MAMP MAMP PRO, Server Press, Local by Flywheel ( free option )
+Use local by flywheel download it, use the preffered name. 
+then click view site
+
+3. Install wordpress with a hosting company:
+
+SiteGround, Cpanel
+go to wordpress.org, get -> download wordpress, use cpanel extract, move in public_html
+then use mysql database wizard
+give name passwd -> then give all priviliges
+
+4. Getting started with wordpress Dashboard:
+
+the comment symbol is for system messages
+Screen options ( show everything whats going on) for check and uncheck
+
+5. How to create a wordpress posts:
+
+New blog post, Most things are done in a post.
+go to post section -> add new
+name of the project is Guttenburg
+guttenburg is a drag and drop editor block
+Give a title and start writing in the next block 
+use modes ( click on the 3 dots in top right mosr corner, you have 3 options spotlight mode, Top Toolbar, Fullscreen mode )
+you can aslo use editor type from the same corner.
+
+6. How to view your wordpress posts:
+
+title, autor, categories, tags, system comments, date
+pagination, can change the items per page for bulk actions, don't increase too much for the page will timeout
+you can also change view mode.
+in wordpress it's called a single because it is a sinle item or a single post
+
+7. How to use wordpress block editor: 
+
+permalink, can be changed under settings ( we have done this on backend )
+permalinks are permannet links that cannot be changed, helps to create a URL structure that is easy for both humans and search engins to understand. 
+   1. A permalink is used when another blogger wants to link to your article.
+   2. You share the permalink when you want to share your content on social media.
+   3. When google wants to index your article, they use the permalink of the content.
+   4. When you want to share a blog post with your frined, youy send the permalink of your content in an email.
+You can chnage edit whatever in your block, most common settings are also given. H1, H2, H3, H4 for heading types.
+
+8. How to set up categories:
+
+they are important, depends on the site, like if you want to build up a news wbesite then you want to add the category of news on your site url /%category%//
+add a name, the slug is what appears in url ususally lowercase
+can also create a nested structure ( like attractions/children/ etc)
+
+9. How to add tags:
+
+links to content to organizational structure
