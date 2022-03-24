@@ -1,0 +1,110 @@
+WebVitas:
+Describe the optimal metrics to deliver a good user experience on a website.
+
+LCP ( Largest content paint ) (How quickly the page loads )
+FID (First Input Delay ) (how soon you can interact with the page ) 
+CLS (Cummulative layout shift) (how stable the page is) 
+
+LCP:
+Measure the perception of Page loading by monitoring the time to load the largest element on above the fold.
+
+1. FCP: Tells you how long it takes for the element to appear in a visitor's browser browser. Distinction to make between First Contentful Paint (FCP) and Largest Contentful Paint (LCP) —which aims to measure when the page's main contents have finished loading. Should be done before 1.8seconds or To ensure you're hitting this target for most of your users, a good threshold to measure is the 75th percentile of page loads, segmented across mobile and desktop devices.
+2. LCP: Time taken for largest elemnet to appear on the website, should be less than 2.5 seconds.
+
+FOLD: Fold is basically the bottom of the visible page when it first loads  
+ABOVE THE FOLD: The content that is visible on the initial load is known as the above the fold content and remaning content is below the fold content.
+
+VIEWPORT: The users visible area of the webpage, varies with device.
+
+
+FID:
+Measeures the time from when a first user interacts with your website ( this might be clicking a link ) it could be clicking the button or image, you cannot find FID everytime, it can only be showed on the field data whereas, in pagespeed metrics. Best practice is between 100 - 300ms.
+The main thread is where a brwoser processes user events and paints. By default, the browser uses a single thread to run all the JS in your page, as well as perform layout, reflows, and garbage collection. This means that long-running JS functions can block a thread, leading to an unresponsive page and a bad user experience
+FIELD DATA is basically a real user experience data that google collects from the chrome real user report crux.
+LAB DATA is the one that is being generated VIA performance testing tools that is pagespeed or gtmetrix.
+If there is no FID go for TBT.
+TIPS to reduce FID:
+1. Reduce js execution time. (Deferring Js means delaying the execution of the heavy Js untill user interaction so that the webpage can render quickly and hence FID time will improve. Check where it is in pagespeed, then use defer tag or any optimization tool like Breeze or wp-rocket add them in URL . 
+2. Enable caching, 
+	1. Is varnish working on your site?
+	2. Is static html caching enable in the breeze settings 
+3. Remove unused JS code.
+	1. Installing huge amount of plugins.
+	2. Not properly removing the plugin.
+	3. Not cleaning up the unused pligin or themes.
+	4. Wrong choice of plugins or themes.
+	5. Use assest clean up plugin.
+4. Optimizing CSS code for minification
+
+
+
+CLS: Aims to measure a websites ability. CLS is a performance metric introduced in 2020 by lighthouse to measure the preceibed visual stability of a page load. (free of content jump, content moves around prior user input. how many elements move in a page
+Causes of bad CLS score:
+1. Missing image or video Dimensions.
+	because of the missing size attribute, when there is not width or heigth. When such element load, the other 
+2. Web fonts
+3. Adding or loading of content dynamically adove the fold.
+4. Handling Ads.
+
+A Block-level element occupies the entire horizontal space of its parent element (container), and vertical space equal to the height of its contents, thereby creating a "block".
+The size of the element reported for Largest Contentful Paint is typically the size that's visible to the user within the viewport. 
+
+
+TTI:
+Time to Interactive (TTI) is a non-standardized web performance 'progress' metric defined as the point in time when the last Long Task finished and was followed by 5 seconds of network and main thread inactivity ( less than 3.8 )
+Time to Interactive (TTI) is an interactive metric that measures the time until a page is first expected to be usable and to respond quickly to user input. TTI is one of the new kids on the block in terms of metrics, and it’s only hanging tough on Chrome (for now).
+
+SI:
+Speed Index is a Lighthouse performance metric that shows how quickly the content of a page is loaded and visible for the user. (less than 3 or 3.4)
+
+
+TBT:
+"TBT measures the total time between First Contentful Paint (FCP) and Time to Interactive where the main-thread was blocked for long enough to prevent input responsiveness."
+In the simplest terms, TBT measures the total amount of time your webpage was blocked, preventing the user from interacting with your page. 
+TTI signals when your page is fully interactive; TBT specifically tells you which JavaScript tasks took the longest to execute. (https://gtmetrix.com/total-blocking-time.html) 
+
+
+
+MINIFY in WP-OPTIMIZE:
+Minify works by combining and minifying the static assets of your website, including CSS and JavaScript files. By removing the unnecessary characters in these static assets, Minify deletes characters such as line breaks and white space from your website’s code; the deletion of which can help your site to load faster by further saving space. Minify also ensures that your files are merged into as few files as possible. This reduces the amount of load on your web server and can be quicker to load fewer files.
+Users can also defer the loading of any CSS or JavaScript file. This means any large or extraneous CSS or JavaScript file can be loaded independently from the core of your WordPress site; giving users quicker access to your site.
+WP-Optimize Minify has been built and designed to work seamlessly with your website and the overall WP-Optimize optimization process. By activating and using Minify, you should find that everything on your site still acts and behaves in exactly the same way that it always has, with the one difference being that it will now hopefully run faster due to the removal of all the unnecessary information.  
+
+
+There are six vitals in lighthouse:
+1. FCP
+2. SI
+3. LCP
+4. TTI
+5. TBT
+6. CLS
+
+===============================================================================EXTRA=================================================================================================
+
+The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).
+
+Basic syntax is: $(selector).action()
+
+    A $ sign to define/access jQuery
+    A (selector) to "query (or find)" HTML elements
+    A jQuery action() to be performed on the element(s)
+
+Static Website:
+A static website consists of a series of HTML files, each one representing a physical page of a website. On static sites, each page is a separate HTML file.
+
+Dynamic Website:
+A dynamic website uses server technologies (such as PHP) to dynamically build a webpage right when a user visits the page.
+
+
+LIGHTHOUSE SEO:
+Every webpage that is crawled by a search engine is evaluated with a score from 5 categories: Performance, Accessibility, Best Practices, SEO and PWA. This is given a score between 0 – 100. The better your lighthouse score is will affect how high up your webpage will appear on a search engine.
+
+Each of these categories are judged on the following:
+
+1. Performance is judged on how quick it takes your webpage to load.
+2. Accessibility is judged by how accessible your website is. Especially for users who might require technology such as a screen reader or have difficulty with colors.
+3. Best Practices are judged by factors which will usually only be apparent to developers. This will be on code health, for example, Using deprecated Libraries/APIs, Asking for permission if you want the users locations and making sure that it is a secure connection of HTTPS.
+4. SEO (Search Engine Optimisation) is judged by making sure the page is optimised for search engine results. This is a large area of website design but some simple examples could be Header names and using keywords, Making sure images have descriptive names so a search engine can label them.
+5. 5PWA (Progressive Web Apps) does not receive a score, it is either there or not. This is still a rather early technology but makes websites run faster on repeated views.
+
+

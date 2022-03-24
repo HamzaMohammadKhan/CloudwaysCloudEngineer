@@ -1,0 +1,54 @@
+A phar file is a way to distribute PHP applications in a single file much like a java jar file
+
+wp user list
+wp cli update
+wp user update 1 --user_pass=admin
+wp user create hamza hamza@example --role=editor --user_pass=password
+wp user update hamza --display_name = "hamza m khan"
+wp user update hamza --user_pass=password123
+up user set-role hamza author 
+wp user add-role hamza administrator 
+wp user remove-role hamza administrator 
+wp user meta get 1 nickname
+wp user meta update 1 hamza nickname "hamza m khan"
+wp user meta add 1 my_meta "hello world"
+wp user meta get 1 my_meta 
+wp user list-caps hamza (capabilities)
+wp user  add-cap hamza mycap
+wp user remove-cap hamza mycap
+wp cap add administrator mycap
+wp cap remove administrator mycap 
+wp cap list subscriber 
+wp cap add subscriber premium_content ( list new cap)
+wp role list
+wp role create priemum_subscriber "Priemum Subscriber"
+wp cap add premium_subscriber level_0
+wp cap add premium_subscriber premium_content
+wp user list_caps hamza
+wp post list
+wp post list --post+type = page,post
+wp post list --post_type = page,post --fields=ID, post_title, post_status
+wp post get 1
+wp post create --post_tile="Hello world 1" --post_name="hello world 1" --post_content="this is my exciting post" --post_status="publish"
+wp post delete 21 --force
+wp post meta list 1
+wp post meta add 1 myekey myvalue
+wp post meta delete 1 mykey
+wp post term list 1 category
+wp term create term category
+wp term create category bluepost --description="Posts which make us blue"
+wp post term set 1 category bluepost
+
+wp Transients & Objects
+Transients are a way of caching data for a set amount of time in WordPress. 
+wp transient set newtran "my string" 30(sec)
+wp transient delete-expired
+wp cache type
+wp cache transient type
+wp cache add mycacheaddobject "woot"
+wp get (access transient)
+
+Scaffolde 
+wp option get siteurl > siteurl.txt
+
+wp eval-file hello_world.php

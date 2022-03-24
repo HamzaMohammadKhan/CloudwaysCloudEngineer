@@ -1,0 +1,42 @@
+Varnish sends request to: 
+	vcl_recv, a subroutine where it is started, it is called whenever the request first hits varished.
+		this is where the important decisions are made, some of them are:
+			- do we want to serve a cache assest for this request.
+			- do we want to restrict the access of certain urls
+			- do we want redirects based on for example GEO lookup, force https
+			- do we wish to manipulate request, sending the request to the origin, header
+	vcl_hash():
+		here you split the cache so the correct response is serve to user, for example yoi can choose
+		
+
+
+
+
+
+return(actions):
+		pass:
+		.When you return pass the request and subsequent response will be passed to and from the backend server. It won't be cached. pass can be returned from vcl_recv
+		.Pass mode is very common in Varnish, and just tells Varnish to pass the request to the backend rather than try and serve it from cache. This is used for dynamic 			pages that should not be cached
+		
+		pipe:
+		.Pipe can be returned from vcl_recv as well. Pipe short circuits the client and the backend connections and Varnish will just sit there and shuffle bytes back and 			forth. Varnish will not look at the data being send back and forth - so your logs will be incomplete. Beware that with HTTP 1.1 a client can send several requests 			on the same connection and so you should instruct Varnish to add a "Connection: close" header before actually returning pipe.
+		.Pipe mode is quite different and is rarely used. If you want to stream objects, such as videos, you'll want to use pipe to avoid timeouts. Using pipe means 			Varnish stops inspecting each request, and just sends bytes straight to the backend. There are multiple gotchas when using pipe, so be sure to checkout using pipe 			in the Varnish docs.
+		BYPASS MEANS IT WILL JUST FOWARD THE REQUEST WITHOUT EVEN LOOKING.
+		
+		HASH:
+		Cookies, IP-address store it
+			
+		The idea is that everything under "/admin" is uncacheable, and that returning "pipe" will bypass the cache, making Varnish only a load-balancer/router for this 			subset of the URL space.
+		
+		The hash_data method is used to setup the hash, in other words the key, of the cached object. This key is used to compare the object with the objects already in   			cache.
+		
+		pipe points directly to the back end for client
+11:52
+pass sends the request to
+11:52
+backend
+11:52
+hash creates a key to look up an object cache stored
+
+vcl_synth (doesn't show what public needs, customize errors also)
+vcl_acl we define ip for purging for securtiy
